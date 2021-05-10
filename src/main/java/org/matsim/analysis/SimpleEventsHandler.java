@@ -17,6 +17,8 @@ public class SimpleEventsHandler implements ActivityStartEventHandler, ActivityE
     @Override
     public void handleEvent(ActivityEndEvent event) {
 
+        if(isInteraction(event.getActType())) return;
+
         personToStartTime.put(event.getPersonId(), event.getTime());
         System.out.println("Person: " + event.getPersonId().toString() + " finished activity " + event.getActType());
     }
@@ -24,9 +26,15 @@ public class SimpleEventsHandler implements ActivityStartEventHandler, ActivityE
     @Override
     public void handleEvent(ActivityStartEvent event) {
 
+        if(isInteraction(event.getActType())) return;
+
         System.out.println("Person: " + event.getPersonId().toString() + " started activity " + event.getActType());
         double startTime = personToStartTime.get(event.getPersonId());
         double travelTime = event.getTime() - startTime;
         System.out.println("Travel time was: " + travelTime);
+    }
+
+    private boolean isInteraction(String type) {
+        return type.endsWith("interaction");
     }
 }
