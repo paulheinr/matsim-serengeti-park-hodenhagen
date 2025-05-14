@@ -42,6 +42,10 @@ public class RunTripDurationAnalysis {
 
         @Override
         public void handleEvent(LinkLeaveEvent linkLeaveEvent) {
+            if(linkLeaveEvent.getLinkId().equals("7232382780007f")){
+                return;
+            }
+
             times.add(linkLeaveEvent.getTime());
         }
     }
