@@ -214,6 +214,8 @@ public final class RunSerengetiParkScenario {
 						
 		config.routing().setAccessEgressType(RoutingConfigGroup.AccessEgressType.accessEgressModeToLink);
 		config.qsim().setUsingTravelTimeCheckInTeleportation( true );
+
+		config.controller().setLastIteration(9);
 		
 		ConfigUtils.applyCommandline( config, typedArgs ) ;
 

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class RunTripDurationAnalysis {
+public class RunLinkLeaveHistogramAnalysis {
     public static void main(String[] args) {
         EventsManager eventsManager = EventsUtils.createEventsManager();
         LinkEventHandler linkEventHandler = new LinkEventHandler();
